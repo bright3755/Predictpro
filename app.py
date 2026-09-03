@@ -180,4 +180,31 @@ linear-gradient(rgba(5,10,8,0.92), rgba(5,10,8,0.92)),
 url('https://images.unsplash.com/photo-1556742031-c6961e8560b0'),.stApp{
 background: 
 linear-gradient(rgba(5,10,8,0.88), rgba(5,10,8,0.88)),
-url('YOUR_IMGBB_LINK_HERE'),
+url('YOUR_IMGBB_LINK_HERE'),import streamlit as st
+from PIL import Image
+import pytesseract
+import cv2
+import numpy as np
+import re
+
+st.set_page_config(page_title="PredictPro GH - AI Football Predictor", page_icon="💰", layout="wide")
+
+if 'uploads' not in st.session_state:
+    st.session_state.uploads = 0
+if 'paid' not in st.session_state:
+    st.session_state.paid = False
+
+# PREMIUM 3D MONEY CSS
+st.markdown("""
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;700;900&display=swap');
+.stApp{
+background: radial-gradient(ellipse at top, #0a2e1a 0%, #05140c 40%, #020805 100%);
+color:white; font-family:'Outfit',sans-serif;
+}
+header, footer{visibility:hidden}
+.hero{
+padding:45px 20px 20px 20px; text-align:center; position:relative;
+background: radial-gradient(circle at 50% 0%, rgba(0,255,136,0.18) 0%, transparent 60%);
+}
+.hero h1{
