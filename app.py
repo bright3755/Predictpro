@@ -14,7 +14,49 @@ if 'paid' not in st.session_state:
 
 st.markdown("""
 <style>
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;700;900&display=swap');# 3D PREMIUM MONEY BACKGROUND
+st.markdown("""
+<style>
 @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;700;900&display=swap');
+
+.stApp{
+background: 
+linear-gradient(rgba(5,10,8,0.92), rgba(5,10,8,0.92)),
+url('https://images.unsplash.com/photo-1556742031-c6961e8560b0'),
+url('https://images.unsplash.com/photo-1512941937669-90a1b58e7e9a');
+background-size: cover;
+background-position: center;
+background-blend-mode: overlay;
+color:white; font-family:'Outfit',sans-serif
+}
+header, footer{visibility:hidden}
+
+/* Floating cash */
+.hero{
+padding:60px 20px; text-align:center; position:relative;
+background: radial-gradient(circle at center, rgba(0,255,136,0.15) 0%, transparent 70%);
+}
+.hero::before{
+content:"💵 💰 📱 💸";
+position:absolute; top:20px; left:10%; font-size:40px; opacity:0.2; animation:float 4s infinite;
+}
+.hero::after{
+content:"GHS 500 Cashout! • GHS 1,200 Won!";
+position:absolute; bottom:0; left:50%; transform:translateX(-50%);
+background:rgba(0,255,136,0.1); border:1px solid #00ff88; padding:8px 20px; border-radius:100px; font-size:12px; color:#00ff88;
+}
+
+.hero h1{font-size:58px; font-weight:900; background:linear-gradient(90deg,#00ff88,#00ffaa); -webkit-background-clip:text; -webkit-text-fill-color:transparent; line-height:1}
+.ball{font-size:120px; animation:float 3s ease-in-out infinite; filter:drop-shadow(0 20px 40px #00ff8855)}
+@keyframes float{0%,100%{transform:translateY(0) rotate(0deg)}50%{transform:translateY(-20px) rotate(3deg)}}
+
+.card{background:rgba(255,255,255,0.07); backdrop-filter:blur(25px); border:1px solid rgba(255,255,255,0.12); border-radius:24px; padding:28px; box-shadow:0 20px 60px rgba(0,0,0,0.6)}
+.proof{display:flex; gap:12px; overflow-x:auto; margin:20px 0}
+.proof div{background:rgba(0,255,136,0.1); border:1px solid #00ff88; border-radius:14px; padding:12px 18px; white-space:nowrap; font-size:13px; font-weight:700}
+.paywall{background:linear-gradient(135deg,#ffcc00,#ff9900); color:black; border-radius:20px; padding:30px; text-align:center; box-shadow:0 20px 40px rgba(255,204,0,0.3)}
+.pred{background:linear-gradient(135deg,rgba(0,255,136,0.15),rgba(0,204,102,0.05)); border:1px solid #00ff88; border-radius:16px; padding:18px; margin:12px 0}
+</style>
+""", unsafe_allow_html=True)
 .stApp{background: radial-gradient(ellipse at top, #0f281e 0%, #050a08 100%); color:white; font-family:'Outfit',sans-serif}
 header, footer{visibility:hidden}
 .hero{padding:50px 20px; text-align:center}
@@ -31,7 +73,49 @@ st.markdown("""
 <div class="hero">
 <div class="ball">⚽</div>
 <h1>PredictPro GH</h1>
-<p style="font-size:19px; opacity:0.8">Upload SportyBet Screenshot → AI Predicts Winner</p>
+<p style="font-size:19px; opacity:0.8">Upload SportyBet Screenshot → AI Predicts Winner</p># 3D PREMIUM MONEY BACKGROUND
+st.markdown("""
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;700;900&display=swap');
+
+.stApp{
+background: 
+linear-gradient(rgba(5,10,8,0.92), rgba(5,10,8,0.92)),
+url('https://images.unsplash.com/photo-1556742031-c6961e8560b0'),
+url('https://images.unsplash.com/photo-1512941937669-90a1b58e7e9a');
+background-size: cover;
+background-position: center;
+background-blend-mode: overlay;
+color:white; font-family:'Outfit',sans-serif
+}
+header, footer{visibility:hidden}
+
+/* Floating cash */
+.hero{
+padding:60px 20px; text-align:center; position:relative;
+background: radial-gradient(circle at center, rgba(0,255,136,0.15) 0%, transparent 70%);
+}
+.hero::before{
+content:"💵 💰 📱 💸";
+position:absolute; top:20px; left:10%; font-size:40px; opacity:0.2; animation:float 4s infinite;
+}
+.hero::after{
+content:"GHS 500 Cashout! • GHS 1,200 Won!";
+position:absolute; bottom:0; left:50%; transform:translateX(-50%);
+background:rgba(0,255,136,0.1); border:1px solid #00ff88; padding:8px 20px; border-radius:100px; font-size:12px; color:#00ff88;
+}
+
+.hero h1{font-size:58px; font-weight:900; background:linear-gradient(90deg,#00ff88,#00ffaa); -webkit-background-clip:text; -webkit-text-fill-color:transparent; line-height:1}
+.ball{font-size:120px; animation:float 3s ease-in-out infinite; filter:drop-shadow(0 20px 40px #00ff8855)}
+@keyframes float{0%,100%{transform:translateY(0) rotate(0deg)}50%{transform:translateY(-20px) rotate(3deg)}}
+
+.card{background:rgba(255,255,255,0.07); backdrop-filter:blur(25px); border:1px solid rgba(255,255,255,0.12); border-radius:24px; padding:28px; box-shadow:0 20px 60px rgba(0,0,0,0.6)}
+.proof{display:flex; gap:12px; overflow-x:auto; margin:20px 0}
+.proof div{background:rgba(0,255,136,0.1); border:1px solid #00ff88; border-radius:14px; padding:12px 18px; white-space:nowrap; font-size:13px; font-weight:700}
+.paywall{background:linear-gradient(135deg,#ffcc00,#ff9900); color:black; border-radius:20px; padding:30px; text-align:center; box-shadow:0 20px 40px rgba(255,204,0,0.3)}
+.pred{background:linear-gradient(135deg,rgba(0,255,136,0.15),rgba(0,204,102,0.05)); border:1px solid #00ff88; border-radius:16px; padding:18px; margin:12px 0}
+</style>
+""", unsafe_allow_html=True)
 <p style="opacity:0.4">89% Accuracy • 3,400+ Ghanaian Users</p>
 </div>
 """, unsafe_allow_html=True)
@@ -90,4 +174,10 @@ with col2:
         st.balloons()
         st.success(f"Done! {left-1} free left after this.")
 
-    st.markdown('</div>', unsafe_allow_html=True)
+    st.markdown('</div>', unsafe_allow_html=True).stApp{
+background: 
+linear-gradient(rgba(5,10,8,0.92), rgba(5,10,8,0.92)),
+url('https://images.unsplash.com/photo-1556742031-c6961e8560b0'),.stApp{
+background: 
+linear-gradient(rgba(5,10,8,0.88), rgba(5,10,8,0.88)),
+url('YOUR_IMGBB_LINK_HERE'),
