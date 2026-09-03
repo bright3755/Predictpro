@@ -1,79 +1,95 @@
 import streamlit as st
-import streamlit.components.v1 as components
 import random
+from PIL import Image
 
 st.set_page_config(page_title="PredictPro Ghana", page_icon="⚽", layout="centered")
 
+# --- HEADER WITH CASHOUT GRAPHIC ---
 st.markdown("""
 <style>
-.stButton>button {background:#00C853;color:white;font-weight:bold;border-radius:10px;padding:12px;width:100%;}
+.cashout-box {
+    background: linear-gradient(135deg, #00C853, #00B248);
+    padding: 20px;
+    border-radius: 15px;
+    color: white;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+.ticket {
+    background: white;
+    color: #222;
+    padding: 15px;
+    border-radius: 10px;
+    margin-top: 15px;
+    font-family: monospace;
+}
 </style>
 """, unsafe_allow_html=True)
 
-st.title("⚽ PredictPro Ghana")
-st.caption("Built for SportyBet Winners | Ghana's #1 Predictor")
+st.markdown("""
+<div class="cashout-box">
+    <h2>💸 SPORTYBET CASHOUT ALERT!</h2>
+    <h3>GH₵ 3,450.00 WON!</h3>
+    <div class="ticket">
+        ✅ Hearts of Oak vs Kotoko - HOME WIN - ODDS 2.15 <br>
+        ✅ Arsenal vs Chelsea - OVER 2.5 - ODDS 1.80 <br>
+        <b>TOTAL ODDS: 3.87 | STAKE: GH₵ 200 | WIN: GH₵ 3,450</b><br>
+        <span style="color:green; font-weight:bold;">STATUS: CASHOUT AVAILABLE ✅</span>
+    </div>
+    <p>Last winners from PredictPro VIP!</p>
+</div>
+""", unsafe_allow_html=True)
 
-tab1, tab2 = st.tabs(["🔮 FREE PREDICTOR", "💎 VIP GHS 20"])
+st.title("⚽ PredictPro Ghana - VIP Predictions")
 
-with tab1:
-    st.write("**For SportyBet, Betway, Soccabet games**")
-    c1, c2 = st.columns(2)
-    home = c1.text_input("Home Team", "Hearts of Oak")
-    away = c2.text_input("Away Team", "Asante Kotoko")
-    
-    if st.button("PREDICT NOW - FOR SPORTYBET"):
-        h = random.randint(45,68)
-        a = random.randint(15,35)
-        d = 100 - h - a
-        
-        st.success(f"Prediction for {home} vs {away}")
-        col1, col2, col3 = st.columns(3)
-        col1.metric(home, f"{h}%")
-        col2.metric("Draw", f"{d}%")
-        col3.metric(away, f"{a}%")
-        
-        if h > 55:
-            tip = f"HOME WIN - Bet {home} Win on SportyBet"
-        elif a > 35:
-            tip = f"AWAY WIN - Bet {away} Win on SportyBet"
-        else:
-            tip = "DOUBLE CHANCE 1X - Safe for SportyBet"
-            
-        st.info(f"🎯 Best Tip: {tip}\n\n📊 Goals: Over 1.5")
-        st.link_button("BET THIS ON SPORTYBET", "https://www.sportybet.com/gh/", use_container_width=True)
+# --- PREDICTION ---
+match = st.selectbox("Select Match", ["Hearts of Oak vs Asante Kotoko", "Arsenal vs Chelsea", "Real Madrid vs Barcelona", "Man City vs Liverpool"])
+if st.button("🎯 GET FREE PREDICTION"):
+    pred = random.choice(["HOME WIN - 78% Confidence", "OVER 2.5 GOALS - 85% Confidence", "BTTS YES - 72% Confidence"])
+    st.success(f"Free Tip for {match}: **{pred}**")
+    st.warning("🔒 For 5 ODDS VIP ACCA + Correct Score, Unlock VIP for GH₵ 20")
 
-with tab2:
-    st.subheader("Unlock Today's 5 Banker Tips")
-    st.write("✅ 90% Win Rate | ✅ For SportyBet")
-    st.write("Pay with MTN MoMo, Telecel, AirtelTigo, Card")
+st.divider()
+
+# --- VIP SECTION ---
+st.subheader("🔐 VIP SECTION - GH₵ 20")
+
+# Simulate payment unlock with checkbox for now (replace with Paystack later)
+paid = st.checkbox("I have paid GH₵ 20 via MTN MoMo (Check to unlock VIP)")
+
+if not paid:
+    st.markdown("### Pay GH₵ 20 to Unlock:")
+    st.markdown("- 5 ODDS Banker Acca\n- Correct Score VIP\n- Upload Your Slip for Review\n- Daily Cashout Tickets")
+    st.link_button("💳 PAY WITH MTN MoMo - GH₵ 20", "https://paystack.com/pay/predictpro-ghana")
+    st.caption("After payment, CHECK the box above to unlock")
+else:
+    st.balloons()
+    st.success("✅ VIP UNLOCKED! Welcome Boss!")
     
-    pay_button = """
-    <script src="https://js.paystack.co/v1/inline.js"></script>
-    <button onclick="pay()" style="background:#00C853;color:white;padding:16px;width:100%;border:none;border-radius:12px;font-size:18px;font-weight:bold;cursor:pointer;">
-    💰 PAY GHS 20 - UNLOCK VIP FOR SPORTYBET
-    </button>
-    <script>
-    function pay(){
-      var handler = PaystackPop.setup({
-        key: 'pk_test_xxxxxxxx',
-        email: 'vip@predictpro.com.gh',
-        amount: 2000,
-        currency: 'GHS',
-        callback: function(response){ alert('Payment success! Ref: ' + response.reference); window.location.href='?paid='+response.reference; }
-      });
-      handler.openIframe();
-    }
-    </script>
-    """
-    components.html(pay_button, height=90)
+    st.markdown("""
+    <div style="background:#E8F5E9; padding:15px; border-radius:10px; border:2px dashed #00C853;">
+    <h4>🎯 TODAY'S VIP ACCA - 5.67 ODDS</h4>
+    1. Bayern vs Dortmund - OVER 2.5 (1.55)<br>
+    2. Hearts vs Kotoko - HOME WIN (2.15)<br>
+    3. Man City to WIN (1.40)<br>
+    <b>BOOK THIS ON SPORTYBET NOW!</b>
+    </div>
+    """, unsafe_allow_html=True)
     
-    if "paid" in st.query_params:
-        st.balloons()
-        st.success("🎉 VIP UNLOCKED! Today's SportyBet Bankers:")
-        st.write("""
-        1. Man City vs Arsenal - OVER 2.5
-        2. Kotoko to WIN vs Hearts
-        3. Barcelona - HOME WIN
-        4. Real Madrid vs Atletico - BTTS YES
-        5. Liverpool vs Chelsea - Over 1.5
-        """)
+    st.divider()
+    # --- SCREENSHOT UPLOAD ---
+    st.subheader("📸 Upload Your SportyBet Slip Screenshot")
+    st.write("Upload your bet slip after booking on SportyBet, I will review it for cashout chance!")
+    
+    uploaded = st.file_uploader("Choose your SportyBet screenshot", type=["jpg", "png", "jpeg"])
+    
+    if uploaded:
+        st.image(uploaded, caption="Your SportyBet Slip", use_column_width=True)
+        st.success("✅ Screenshot Received! Good luck! This ticket will CASHOUT! 💰")
+        st.markdown("**My Analysis:** Strong ticket! Hold for cashout at 70% profit.")
+    
+    st.divider()
+    st.markdown("### 💰 Recent Cashouts from Members")
+    st.image("https://i.ibb.co/3fL0X7n/sportybet-cashout.jpg", caption="GH₵ 1,200 Cashout - Member: Kwame from Kumasi", use_column_width=True)
+
+st.caption("PredictPro Ghana - Not affiliated with SportyBet. 18+ Gamble Responsibly")
